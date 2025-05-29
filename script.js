@@ -290,3 +290,37 @@ function obtenerPacientes() {
       lista.appendChild(item);
     });
   }
+
+
+  // APARTADO DE LOGIN
+
+  
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('login-form');
+    const loginError = document.getElementById('login-error');
+  
+    // Credenciales simples para demostración.
+    // En una aplicación real, estas se enviarían a un servidor para autenticación.
+    const validUsername = 'admin';
+    const validPassword = 'password';
+  
+    if (loginForm) { // Asegúrate de que el formulario exista en la página
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault(); // Previene el envío predeterminado del formulario
+  
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+  
+        if (username === validUsername && password === validPassword) {
+          // Inicio de sesión exitoso:
+          // Normalmente, aquí manejarías el almacenamiento de la sesión (por ejemplo, localStorage, sessionStorage)
+          // o redirigirías basándote en una respuesta del servidor.
+          alert('¡Inicio de sesión exitoso!');
+          window.location.href = 'index.html'; // Redirige al dashboard
+        } else {
+          // Inicio de sesión fallido
+          loginError.style.display = 'block'; // Muestra el mensaje de error
+        }
+      });
+    }
+  });
